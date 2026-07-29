@@ -15,14 +15,14 @@ web app with a virtual lab.
 **This repository holds only the device firmware and relay server**, i.e. the two
 boxes at the left of the pipeline below. The student web app (virtual lab, room-picker
 hub, weather/AI-vision/IoT/camera STEPs, YOLO training walkthrough) is a separate
-codebase, maintained separately.
+codebase — live at **https://doctor-green-edu.vercel.app**.
 
 ```mermaid
 flowchart LR
     S["DHT11 sensor\nNeoPixel LEDs\n16x2 I2C LCD"] --- D
     D["ESP32 Hexa Board\n(MicroPython firmware)\n— this repo"] -- "USB serial\n115200 baud" --> R
     R["Flask relay server\n— this repo"] -- "REST" --> SB[("Supabase")]
-    SB --> W["Student web app\n(virtual lab)\nmaintained separately"]
+    SB --> W["Student web app\n(virtual lab)\ndoctor-green-edu.vercel.app"]
 ```
 
 ## Repository contents
@@ -123,6 +123,7 @@ More on the full program (class flow, virtual lab, AI-vision and weather-API STE
 담고 있습니다. DHT11 온습도 센서, NeoPixel LED, 16x2 I2C LCD를 제어하는 펌웨어가
 2초마다 센서 값을 시리얼로 Mac에 전송하면, Flask 서버가 이를 SQLite에 기록하고
 Supabase로 적재하며, 학생용 웹앱(가상 실습실 등)이 쓰는 REST API를 제공합니다.
-학생용 웹앱과 가상 실습실은 별도 코드베이스로 관리됩니다. 이 프로그램은 양평교육청
+학생용 웹앱(가상 실습실)은 별도 코드베이스로 관리되며
+https://doctor-green-edu.vercel.app 에 배포되어 있습니다. 이 프로그램은 양평교육청
 위탁 사업으로, 지원으로 선발된 15명 고교생 코호트 수업으로 운영될 예정입니다.
 자세한 내용은 위 포트폴리오 링크를 참고해 주세요.
